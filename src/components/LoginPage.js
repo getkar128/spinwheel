@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 // const LOGIN_URL = '/auth'
 
 const EMAIL = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/
-const PHONE_NO = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/
+const PHONE_NO = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/
 
 const LoginPage = () => {
 
@@ -28,15 +28,13 @@ const LoginPage = () => {
     userRef.current.focus()
   }, [])
 
-  
-
   useEffect(() => {
     const result = EMAIL.test(email)
     setValidEmail(result)
   }, [email])
 
   useEffect(() => {
-    const result = EMAIL.test(email)
+    const result = PHONE_NO.test(phoneNo)
     setValidPhoneNo(result)
   }, [phoneNo])
 
