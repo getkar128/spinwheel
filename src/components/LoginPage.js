@@ -24,6 +24,7 @@ const LoginPage = () => {
   const [validEmail, setValidEmail] = useState(false)
   const [validPhoneNo, setValidPhoneNo] = useState(false)
 
+
   useEffect(()=> {
     userRef.current.focus()
   }, [])
@@ -89,7 +90,7 @@ const LoginPage = () => {
           <div className='flex bg-[#fefefe] items-center mb-3 rounded-md'>
             <FiMail size='1.5rem' className='ml-2 mr-2'/>
             <div>
-              <p className={validEmail ? 'hidden' : 'errmsg'}>Enter a valid email</p>
+              <p className={validEmail || !email ? 'hidden' : 'errmsg'}>Enter a valid email</p>
               <label htmlFor="email" className='block text-xs mt-2 text-[#49454F] min-[750px]:mt-1'>Email</label>
               <input 
                 className='outline-none pb-2 text-[#49454F] min-[750px]:pb-1'
@@ -104,7 +105,7 @@ const LoginPage = () => {
           <div className='flex bg-[#fefefe] items-center mb-3 rounded-md'>
             <MdOutlineLocalPhone className='ml-2 mr-2' size='1.5rem'/>
             <div>
-            <p className={validPhoneNo ? 'hidden' : 'errmsg'}>Enter a valid Phone No</p>
+            <p className={validPhoneNo || !phoneNo ? 'hidden' : 'errmsg'}>Enter a valid Phone No</p>
               <label htmlFor="phone" className='block text-xs mt-2 text-[#49454F] min-[750px]:mt-1'>Phone Number</label>
               <input 
                 className='outline-none pb-2 text-[#49454F] min-[750px]:pb-1'
